@@ -1,0 +1,21 @@
+#Makefile for http-client.c
+
+CC  = gcc
+CXX = g++
+
+CFLAGS   = -g -Wall $(INCLUDES)
+CXXFLAGS = -g -Wall $(INCLUDES)
+
+
+.PHONY: default
+default: http-client
+
+# header dependency
+http-client.o: http-client.c
+
+.PHONY: clean
+clean:
+	rm -f *.o *~ a.out core http-client
+
+.PHONY: all
+all: clean default
